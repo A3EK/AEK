@@ -85,7 +85,7 @@ bot_id = botid,
 username = username, 
 sudo_users = {SUDO}, 
 }
-create(config, "./Info.lua")   
+create(config, "./config.lua")   
 end
 file = io.open("RUNAEK.sh", "w")  
 file:write([[
@@ -124,14 +124,14 @@ file:close()
 end 
 end
 local load_DevAek = function()  
-local f = io.open("./Info.lua", "r")  
+local f = io.open("./config.lua", "r")  
 if not f then 
 AutoSet()  
 else   
 f:close() 
 DevAek:del(ServerAEK.."IdAEK");DevAek:del(ServerAEK.."UserAEK");DevAek:del(ServerAEK.."TokenAEK")
 end  
-local config = loadfile("./Info.lua")() 
+local config = loadfile("./config.lua")() 
 return config 
 end  
 _DevAek = load_DevAek() 
@@ -149,7 +149,7 @@ print("\27[36m"..[[
 |               - AEK -                 |
 ---------------------------------------------
 ]]..'\27[m')
-sudos = dofile("./Info.lua") 
+sudos = dofile("./config.lua") 
 DevId = sudos.SUDO 
 sudo_users = {sudos.sudo_users,152221858} 
 bot_id = sudos.bot_id 
@@ -3843,7 +3843,7 @@ name = string.gsub(name,'⛄️','☃️☃️☃️☃️⛄️☃️☃️☃�
 name = string.gsub(name,'👨‍🔬','👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍🔬')
 name = string.gsub(name,'👨‍💻','👩‍💻👩‍💻👨‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻')
 name = string.gsub(name,'👨‍🔧','👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👩‍🔧👨‍🔧👩‍🔧')
-name = string.gsub(name,'👩‍🍳','👨‍🍳??‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳')
+name = string.gsub(name,'👩‍🍳','👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳')
 name = string.gsub(name,'🧚‍♀️','🧚‍♂️🧚‍♂️🧚‍♂️🧚‍♂️🧚‍♂️🧚‍♀️🧚‍♂️🧚‍♂️')
 name = string.gsub(name,'🧚‍♂️','🧚‍♀️🧚‍♀️🧚‍♀️🧚‍♀️🧚‍♀️🧚‍♂️🧚‍♀️🧚‍♀️')
 name = string.gsub(name,'🧝‍♂️','🧝‍♀️🧝‍♀️🧝‍♀️🧝‍♂️🧝‍♀️🧝‍♀️🧝‍♀️🧝‍♀️')
