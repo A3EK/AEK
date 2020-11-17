@@ -86,7 +86,6 @@ username = username,
 sudo_users = {SUDO}, 
 }
 create(config, "./config.lua")   
-end
 file = io.open("RUNAEK.sh", "w")  
 file:write([[
 #!/bin/bash 
