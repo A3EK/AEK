@@ -1,6 +1,6 @@
 ------------------------------------------------
 -- This Source Was Developed By (AEKAN) @A3KON.--
---   This Is The Source Channel @SoalfLove .   --
+--   This Is The 𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭 @SoalfLove .   --
 --                - AEK -                 --
 --        -- https://t.me/SoalfLove --         --
 ------------------------------------------------ 
@@ -1256,25 +1256,25 @@ end
 end
 
 if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and ChCheck(msg) then 
-local DEV_ABBAS = text:match("رفع (.*)")
-if DevAek:sismember(bot_id.."Coomds"..msg.chat_id_,DEV_ABBAS) then
+local DEV_AEEKAN = text:match("رفع (.*)")
+if DevAek:sismember(bot_id.."Coomds"..msg.chat_id_,DEV_AEEKAN) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local mraek = DevAek:get(bot_id.."Comd:New:rt:bot:"..DEV_ABBAS..msg.chat_id_)
+local mraek = DevAek:get(bot_id.."Comd:New:rt:bot:"..DEV_AEEKAN..msg.chat_id_)
 if mraek == "مميز" and is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
-DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_ABBAS) 
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
+DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_AEEKAN) 
 DevAek:sadd(AEK..'aek:vipmem:'..msg.chat_id_, result.sender_user_id_)
 elseif mraek == "ادمن" and is_admin(msg.sender_user_id_, msg.chat_id_) then 
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
-DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_ABBAS)
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
+DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_AEEKAN)
 DevAek:sadd(AEK..'aek:admins:'..msg.chat_id_, result.sender_user_id_)
 elseif mraek == "مدير" and is_owner(msg.sender_user_id_, msg.chat_id_) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
-DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_ABBAS)  
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
+DevAek:set(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,DEV_AEEKAN)  
 DevAek:sadd(AEK..'aek:owners:'..msg.chat_id_, result.sender_user_id_)
 elseif mraek == "عضو" then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم رفعه ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
 end
 end,nil)   
 end   
@@ -1282,25 +1282,25 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and ChCheck(msg) then 
-local DEV_ABBAS = text:match("تنزيل (.*)")
-if DevAek:sismember(bot_id.."Coomds"..msg.chat_id_,DEV_ABBAS) then
+local DEV_AEEKAN = text:match("تنزيل (.*)")
+if DevAek:sismember(bot_id.."Coomds"..msg.chat_id_,DEV_AEEKAN) then
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local mraek = DevAek:get(bot_id.."Comd:New:rt:bot:"..DEV_ABBAS..msg.chat_id_)
+local mraek = DevAek:get(bot_id.."Comd:New:rt:bot:"..DEV_AEEKAN..msg.chat_id_)
 if mraek == "مميز" and is_vipmem(msg.sender_user_id_, msg.chat_id_) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
 DevAek:srem(AEK..'aek:vipmem:'..msg.chat_id_, result.sender_user_id_)
 DevAek:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif mraek == "ادمن" and is_admin(msg.sender_user_id_, msg.chat_id_) then 
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
 DevAek:srem(AEK..'aek:admins:'..msg.chat_id_, result.sender_user_id_)
 DevAek:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif mraek == "مدير" and is_owner(msg.sender_user_id_, msg.chat_id_) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
 DevAek:srem(AEK..'aek:owners:'..msg.chat_id_, result.sender_user_id_)
 DevAek:del(bot_id.."Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif mraek == "عضو" then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_ABBAS..' ❩ بنجاح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙العضو ↫ ❨ ['..data.first_name_..'](t.me/'..(data.username_ or 'SoalfLove')..')'..' ❩\n⌁︙تم تنزيلة ❨ '..DEV_AEEKAN..' ❩ بنجاح', 1, 'md')
 end
 end,nil)   
 end   
@@ -1382,7 +1382,7 @@ end
 if ChatType == 'pv' then 
 if text == '/start' or text == 'رجوع ،🔙‘' then 
 if is_leader(msg) then 
-local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ايـك\n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
+local Sudo_Welcome = '⌁︙مرحبا عزيزي المطور \n⌁︙انت المطور الاساسي هنا \n⌁︙اليك ازرار سورس ايك\n⌁︙تستطيع التحكم بكل الاوامر فقط اضغط على الامر الذي تريد تنفيذه'
 local key = {
 {'وضع اسم البوت','↫ تحديث ⌁','ضع كليشه المطور'},
 {'↫ الكروبات ⌁','↫ المطورين ⌁','↫ الاحصائيات ⌁'},
@@ -1406,7 +1406,7 @@ end end end
 if ChatType == 'pv' then 
 if text == '⌯ ❨ تعيين كلايش الاوامر ❩ ⌯' then 
 if is_leader(msg) then 
-local Sudo_Welcome = '⌁︙اهلا بك مجددا عزيزي المطور \n⌁︙اليك الازرار الخاصه بتعديل وتغيير كلايش سورس ايـكفقط اضغط على الامر الذي تريد تنفيذه'
+local Sudo_Welcome = '⌁︙اهلا بك مجددا عزيزي المطور \n⌁︙اليك الازرار الخاصه بتعديل وتغيير كلايش سورس ايكفقط اضغط على الامر الذي تريد تنفيذه'
 local key = {
 {'حذف كليشة الايدي','تعيين كليشة الايدي'},
 {'تعيين امر الاوامر'},
@@ -1695,7 +1695,7 @@ local aek_text = {
 'معرفك الجديد عشره بربع محد ياخذه😹💔',
 "هاها غيرت معرفك نشروك بقناة فضايح😹💔💭",
 "معرفك الجديد حلو منين خامطه؟!🤤♥️",
-"معرفك القديم @"..result.username_.." ضمه بقناة لاينبعص، 😹♥️",
+"معرفك القديم @"..result.username_.." ضمه بقناة عمري، 😹♥️",
 }
 aeekk = math.random(#aek_text)
 Dev_Aek(msg.chat_id_, msg.id_, 1, aek_text[aeekk], 1, 'html')
@@ -3449,7 +3449,7 @@ if text == 'نايمين' or text == 'ميتين' then  if not DevAek:get(AEK..'
 if text == 'هلوباي' or text == 'هلو باي' then  if not DevAek:get(AEK..'bot:rep:mute'..msg.chat_id_) then AEK_AN =  "شحۡسۜيت مۘنۨہ هيجۚ ּكتبت ؟ 🌝♥️" else  AEK_AN = '' end  Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN, 1, 'md') end
 if text == 'اكلك' or text == 'اكلج' or text == 'اكلكم' then if not DevAek:get(AEK..'bot:rep:mute'..msg.chat_id_) then AEK_AN =  "ڪوولُِ مآڪوولُِ لُِآحٍدِ 𖠙 😉♥️" else AEK_AN = '' end Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN, 1, 'md') end
 if text == 'فرخ' then  if not DevAek:get(AEK..'bot:rep:mute'..msg.chat_id_) then AEK_AN =  "ٰوينۨہهۂَ خۡل احۡصرهۂَ 𖠙 😹♥️" else  AEK_AN = '' end  Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN, 1, 'md') end
-if text == 'سورس عبس' or text == 'سورس ايـك' or text == 'سورس ديف ايـك' or text == 'سورس زربه' or text == 'السورس زربه' or text == 'سورس عاوي' or text == 'السورس عاوي' then if not DevAek:get(AEK..'bot:rep:mute'..msg.chat_id_) then AEK_AN =  "لُِآ سوورس خآلُِتڪ دِي لُِڪ 𖠙 😒🔪" else AEK_AN = '' end Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN, 1, 'md') end 
+if text == 'سورس ايكان' or text == 'سورس ايك' or text == 'سورس ايكو' or text == 'سورس زربه' or text == 'السورس زربه' or text == 'سورس عاوي' or text == 'السورس عاوي' then if not DevAek:get(AEK..'bot:rep:mute'..msg.chat_id_) then AEK_AN =  "لُِآ سوورس خآلُِتڪ دِي لُِڪ 𖠙 😒🔪" else AEK_AN = '' end Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN, 1, 'md') end 
 end
 --     Source AEK     --
 if text == 'بوت' or text == 'بوتت' then name_bot = (DevAek:get('AEK_AN:'..bot_id..'name_bot') or 'ايـك') local AEK_AN = {  "لتكول بوت اسمي "..name_bot.." 😒🔪",  "عندي اسم تره 😒💔",  "صيحولي "..name_bot.." كافي بوت 😒🔪",  "انت البوت لك 😒💔", } DevAek2 = math.random(#AEK_AN) Dev_Aek(msg.chat_id_, msg.id_, 1, AEK_AN[DevAek2] , 1, 'md') end
@@ -4037,7 +4037,7 @@ Dev_Aek(msg.chat_id_, msg.id_, 1,[[
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
 ⌁︙نقاطي • بيع نقاطي
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]], 1, 'md')
 end
 end
@@ -4199,13 +4199,15 @@ local text =  [[
 Welcome To Source
 ⌁︙AEK TEAM
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 
-⌁︙[Exp Source](https://t.me/Rt_yt)
+⌁︙[Exp Source](https://t.me/Yt_ha)
 
 ⌁︙[Developer](https://t.me/A3KON)
+
+⌁︙[Developer](https://t.me/RT_YT)
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Tws AEK](https://t.me/Snakebot)
+⌁︙[Tws AEK](https://t.me/Sn7kebot)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
@@ -4412,9 +4414,13 @@ end
 getUser(msg.sender_user_id_,get_firstname)
 end   
 --     Source AEK     --
-if text and text == "اهمس" or text and text == "همسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙@HMSEBOT', 1, 'md') end
-if text:match("^رابط حذف$") or text:match("^رابط الحذف$") or text:match("^اريد رابط الحذف$") or  text:match("^شمرلي رابط الحذف$") or text:match("^اريد رابط حذف$") then local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
-if text:match("^بوت الحذف$") or text:match("^اريد بوت الحذف$") or text:match("^اريد بوت حذف$") or text:match("^بوت حذف$") or text:match("^بوت حذف حسابات$") or text:match("^راح احذف$") then local inline = {{{text="اضغط هنا",url="https://t.me/DYFBOT"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
+if text and text == "اهمس" or text and text == "همسه" or text and text == "بوت الهمسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  Dev_Aek(msg.chat_id_, msg.id_, 1, '⌁︙@hmosabot', 1, 'md') end
+if text:match("^رابط حذف$") or text:match("^رابط الحذف$") or text:match("^اريد رابط الحذف$") or  text:match("^شمرلي رابط الحذف$") or text:match("^اريد رابط حذف$") then local inline = {{{text="اضغط هنا",url="https://my.telegram.org/auth?to=delete"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على الرابط',nil,inline) return false end
+if text:match("^بوت رنوشه$") or text:match("^اريد بوت رنوشه$") or text:match("^معرف بوت رنوشه$") or text:match("^معرف رنوشه$") or text:match("^بوت ردود$") or text:match("^بوت رنوشة$") then local inline = {{{text="اضغط هنا",url="https://t.me/RnoshaBot"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
+if text:match("^بوت رتوشه$") or text:match("^اريد بوت رتوشه$") or text:match("^معرف بوت رتوشه$") or text:match("^معرف رتوشه$") or text:match("^بوت الردود$") or text:match("^بوت رتوشة$") then local inline = {{{text="اضغط هنا",url="https://t.me/RtoshaBot"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
+if text:match("^بوت كانونه$") or text:match("^اريد بوت كانونه$") or text:match("^معرف بوت كانونه$") or text:match("^معرف كانونه$") or text:match("^بوت اغاني$") or text:match("^بوت أغاني$") then local inline = {{{text="اضغط هنا",url="https://t.me/KanonhBot"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
+if text:match("^بوت سنيك$") or text:match("^اريد بوت سنيك$") or text:match("^معرف بوت سنيك$") or text:match("^معرف سنيك$") or text:match("^بوت الحمايه$") or text:match("^بوت الحماية$") then local inline = {{{text="اضغط هنا",url="https://t.me/Sn7kebot"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
+if text:match("^بوت جبل$") or text:match("^اريد بوت جبل$") or text:match("^معرف بوت جبل$") or text:match("^معرف جبل$") or text:match("^بوت حمايه$") or text:match("^بوت حماية$") then local inline = {{{text="اضغط هنا",url="https://t.me/Jbllbot"}}} send_inline(msg.chat_id_,'⌁︙اضغط للحصول على البوت',nil,inline) return false end
 if text:match("^جهاتي$") and ChCheck(msg) or text:match("^اضافاتي$") and ChCheck(msg) then add = (tonumber(DevAek:get(AEK..'bot:user:add'..msg.chat_id_..':'..msg.sender_user_id_)) or 0) Dev_Aek(msg.chat_id_, msg.id_, 1, "⌁︙عدد جهاتك المضافة ↫ *❨ "..add.." ❩* ", 1, 'md') end
 if text:match("^تعديلاتي$") or text:match("^سحكاتي$") and ChCheck(msg) then local edit_msg = DevAek:get(AEK..'bot:editmsg'..msg.chat_id_..msg.sender_user_id_) or 0  Dev_Aek(msg.chat_id_, msg.id_, 1, "⌁︙عدد تعديلاتك ↫ *❨ "..edit_msg.." ❩* ", 1, 'md') end
 if text:match("^رسائلي اليوم$") and ChCheck(msg) then local AEK_AN = DevAek:get(AEK..'user:msgs'..bot_id..os.date('%d')..':'..msg.chat_id_..':'..msg.sender_user_id_) or 0 Dev_Aek(msg.chat_id_, msg.id_, 1, "⌁︙رسائلك اليوم ↫ *❨ "..(AEK_AN).." ❩* ", 1, 'md') end
@@ -4468,7 +4474,7 @@ end
 if text:match("^هينه$") or text:match("^بعد هينه$") or text:match("^هينه بعد$") or text:match("^لك هينه$") or text:match("^هينها$") or text:match("^هينهه$") then
 function hena(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then 
-Dev_Aek(msg.chat_id_, msg.id_, 1, 'شو تمضرط اكو واحد يهين نفسه؟🤔👌🏿', 1, 'md') 
+Dev_Aek(msg.chat_id_, msg.id_, 1, 'شو متعرف تحجي اكو واحد يهين نفسه؟🤔👌🏿', 1, 'md') 
 return false  
 end  
 if tonumber(result.sender_user_id_) == tonumber(DevId) then  
@@ -6690,7 +6696,7 @@ local sticker = (tonumber(DevAek:get(AEK.."sticker:"..msg.sender_user_id_..":"..
 local user_nkt = tonumber(DevAek:get(AEK..'bot:add:num'..msg.chat_id_..msg.sender_user_id_) or 0)
 local cont = (tonumber(DevAek:get(AEK..'bot:user:add'..msg.chat_id_..':'..msg.sender_user_id_)) or 0)
 local msguser = tonumber(DevAek:get(AEK..'user:msgs'..msg.chat_id_..':'..msg.sender_user_id_))
-local Texting = {'صورتك فدشي 😘😔❤️',"صارلك شكد مخليه ","وفالله 😔💘","كشخه برب 😉💘","دغيره شبي هذ 😒","عمري الحلوين 💘",}
+local Texting = {'صورتك فدشي 😘 ❤️',"صارلك شكد مخليه ","اروح فـدوه للـحلـويـن 🙈","كشخه برب 😉💘","مارتاحلك تلش تلش 🙄","شهل الصوره تخمبش 🤩","منور اليوم فطيتك 😍","فديت الحلو 🤗","شهل العسل 🍯","شاعل الدنيا بحلاتك ❣️","جمالك ماخذ الأول 🌕","ملاك وناسيك بكروبنه 😟","كيكك والله🥺","لا قيمه للقمر امام وجهك 🌝","دغيره شبي هذا 😒","عمري الحلوين 💘",}
 local Description = Texting[math.random(#Texting)]
 if result.photos_[0] then
 if not DevAek:get('AEK:id:mute'..msg.chat_id_) then 
@@ -8149,7 +8155,7 @@ local TXTE = "⌁︙اعدادات المجموعة ↫ ⤈\n┉ ≈ ┉ ≈ ┉
 .."⌁︙التكرار ↫ "..flood.."\n"
 .."⌁︙عدد التكرار ↫ "..Flood_Num.."\n"
 .."⌁︙عدد السبام ↫ "..spam_c.."\n"
-.."┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙[𝗧𝗘𝗔𝗠 𝗗𝗘𝗩](https://t.me/SoalfLove)\n"
+.."┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉\n⌁︙[ⲀⲈⲔ ⲦⲈⲀⲘ ⲆⲈ𝓥](https://t.me/SoalfLove)\n"
 Dev_Aek(msg.chat_id_, msg.id_, 1, TXTE, 1, 'md')
 end
 end
@@ -9112,7 +9118,7 @@ local text =  [[
 ⌁︙م5 ↫ اوامر المطورين
 ⌁︙م6 ↫ اوامر الاعضاء
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]] 
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9176,7 +9182,7 @@ local text =  [[
 ⌁︙البوتات بالطرد
 ⌁︙البوتات بالتقييد
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9250,7 +9256,7 @@ local text =  [[
 ⌁︙تقييد يوم + عدد الايام
 ⌁︙الغاء تقييد ↫ لالغاء التقييد بالوقت
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9306,7 +9312,7 @@ local text =  [[
 ⌁︙تفعيل • تعطيل ↫ تنبيه التغيرات
 ⌁︙تفعيل • تعطيل ↫ الايدي بالصوره
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9356,7 +9362,7 @@ local text =  [[
 ⌁︙المنشئين الاساسيين 
 ⌁︙حذف جميع الرتب
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9437,7 +9443,7 @@ local text =  [[
 ⌁︙تفعيل • تعطيل ↫ البوت الخدمي
 ⌁︙تفعيل • تعطيل ↫ الاشتراك الاجباري
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end end
@@ -9479,7 +9485,7 @@ local text =  [[
 ⌁︙صيحه • صيحها ↫ بالرد • بالمعرف
 ⌁︙ايدي • كشف  ↫ بالرد • بالمعرف • بالايدي
 ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
-⌁︙[Source Channel](https://t.me/SoalfLove)
+⌁︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, (help or text), 1, 'md')
 end
@@ -9698,7 +9704,7 @@ end
 end 
 ------------------------------------------------
 -- This Source Was Developed By (AEKAN) @A3KON.--
---   This Is The Source Channel @SoalfLove .   --
+--   This Is The 𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭 @SoalfLove .   --
 --                - AEK -                 --
 --        -- https://t.me/SoalfLove --         --
 ------------------------------------------------ 
