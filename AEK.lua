@@ -2969,20 +2969,20 @@ return false
 end
 if text and text == (DevAek:get(AEK..'Aek:NameBot') or 'ايك') then 
 NameBot = (DevAek:get(AEK..'Aek:NameBot') or 'ايك')
-local namebot = {'😸♥️ هلا كلبي وياك '..NameBot..' تفضل','عمري فداك '..NameBot..' حب','احتركوا أهل '..NameBot..' شتريد','ترةه مصختهاا احجيي شرايد 😕😒💔',' شتريد حبي اني '..NameBot..' ','دا اشرب اركيله تعال غير وقت','ماكو غيري بالكروب تصيح عليه','ها يعمري وياك '..NameBot..' ',' نعم يعطري اني '..NameBot..' ','اطلقق واحدد يصيح '..NameBot..' 😻♥️','هياتني قلبي','خبصتت امنةة شتريدد عااد 🤧😒💔'} 
+local namebot = {'😸♥️ هلا كلبي وياك '..NameBot..' تفضل','ترةه مصختهاا احجيي شرايد 😕😒💔','اطلقق واحدد يصيح '..NameBot..' 😻♥️','خبصتت امنةة شتريدد عااد 🤧😒💔'} 
 name = math.random(#namebot) 
 Dev_Aek(msg.chat_id_, msg.id_, 1, namebot[name] , 1, 'html') 
 return false 
 end
 if text =='نقاطي' and ChCheck(msg) then 
 if tonumber((DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_) or 0)) == 0 then
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ لم تربح اي نقطه\n♕︙ ارسل ↫ الالعاب للعب', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙لم تربح اي نقطه\n♕︙ارسل ↫ الالعاب للعب', 1, 'md')
 else 
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ عدد النقاط التي ربحتها ↫ '..(DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_)), 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙عدد النقاط التي ربحتها ↫ '..(DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_)), 1, 'md')
 end
 end
-if text ==  'حذف رسائلي' and ChCheck(msg) or text ==  'مسح رسائلي' and ChCheck(msg) then DevAek:del(AEK..'Aek:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_) Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙ تم حذف جميع رسائلك', 1, 'md') end
-if text ==  'حذف نقاطي' and ChCheck(msg) or text ==  'مسح نقاطي' and ChCheck(msg) then DevAek:del(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_) Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙ تم حذف جميع نقاطك', 1, 'md') end
+if text ==  'حذف رسائلي' and ChCheck(msg) or text ==  'مسح رسائلي' and ChCheck(msg) then DevAek:del(AEK..'Aek:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_) Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙تم حذف جميع رسائلك', 1, 'md') end
+if text ==  'حذف نقاطي' and ChCheck(msg) or text ==  'مسح نقاطي' and ChCheck(msg) then DevAek:del(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_) Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙تم حذف جميع نقاطك', 1, 'md') end
 --     Source AEK     --
 if text == 'سمايلات' and ChCheck(msg) or text == 'السمايلات' and ChCheck(msg) then
 if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
@@ -3106,13 +3106,13 @@ name = string.gsub(name,'⏰','⏰')
 name = string.gsub(name,'📺','📺')
 name = string.gsub(name,'🎚','🎚')
 name = string.gsub(name,'☎️','☎️')
-AEKTEAM = '♕︙ اول واحد يدز هذا السمايل يربح ↫ '..name
+AEKTEAM = '♕︙اول واحد يدز هذا السمايل يربح ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ سمايلات للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ سمايلات للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3164,13 +3164,13 @@ name = string.gsub(name,'حاسوب','س ا ح و ب')
 name = string.gsub(name,'انترنيت','ا ت ن ر ن ي ت')
 name = string.gsub(name,'ساحه','ح ا ه س')
 name = string.gsub(name,'جسر','ر ج س')
-AEKTEAM = '♕︙ اول واحد يرتبها يربح ↫ '..name
+AEKTEAM = '♕︙اول واحد يرتبها يربح ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ ترتيب للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ ترتيب للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3185,8 +3185,8 @@ TEST = [[
 ↓     ↓     ↓     ↓     ↓     ↓
 👊 ‹› 👊🏻 ‹› 👊🏼 ‹› 👊🏽 ‹› 👊🏾 ‹› 👊🏿
 
-♕︙ اختر رقم لاستخراج المحيبس
-♕︙ الفائز يحصل على (5) نقاط
+♕︙اختر رقم لاستخراج المحيبس
+♕︙الفائز يحصل على (5) نقاط
 ]]
 Dev_Aek(msg.chat_id_, msg.id_, 1, TEST, 1, "md") 
 DevAek:setex(AEK.."SET:GAME"..msg.chat_id_, 100, true)  
@@ -3231,13 +3231,13 @@ name = string.gsub(name,'الثلج','انا ابن الماء فان تركون
 name = string.gsub(name,'الاسفنج','كلي ثقوب ومع ذالك احفض الماء فمن اكون ؟')
 name = string.gsub(name,'الصوت','اسير بلا رجلين ولا ادخل الا بالاذنين فمن انا ؟')
 name = string.gsub(name,'بلم','حامل ومحمول نصف ناشف ونصف مبلول فمن اكون ؟ ')
-AEKTEAM = '♕︙ اول واحد يحلها يربح ↫ '..name
+AEKTEAM = '♕︙اول واحد يحلها يربح ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ حزوره للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ حزوره للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3274,13 +3274,13 @@ name = string.gsub(name,'زرافه','🦒')
 name = string.gsub(name,'قنفذ','🦔')
 name = string.gsub(name,'تفاحه','🍎')
 name = string.gsub(name,'باذنجان','🍆')
-AEKTEAM = '♕︙ ما معنى هذا السمايل :؟ ↫ '..name
+AEKTEAM = '♕︙ما معنى هذا السمايل :؟ ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum2'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ المعاني للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ المعاني للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3317,13 +3317,13 @@ name = string.gsub(name,'موعطشان','عطشان')
 name = string.gsub(name,'خوش ولد','موخوش ولد')
 name = string.gsub(name,'اني','مطي')
 name = string.gsub(name,'هادئ','عصبي')
-AEKTEAM = '♕︙ ما هو عكس كلمة ↫ '..name
+AEKTEAM = '♕︙ما هو عكس كلمة ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum3'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ العكس للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ العكس للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3363,13 +3363,13 @@ name = string.gsub(name,'⌛️','⏳⏳⏳⏳⏳⌛️⏳⏳')
 name = string.gsub(name,'📅','📆📆📆📆📆📅📆📆')
 name = string.gsub(name,'👩‍⚖️','👨‍⚖️👨‍⚖️👨‍⚖️👨‍⚖️👨‍⚖️👩‍⚖️👨‍⚖️👨‍⚖️')
 name = string.gsub(name,'👨‍🎨','👩‍🎨👩‍🎨👨‍🎨👩‍🎨👩‍🎨👩‍🎨👩‍🎨👩‍🎨')
-AEKTEAM = '♕︙ اول واحد يطلع المختلف يربح\n{'..name..'} '
+AEKTEAM = '♕︙اول واحد يطلع المختلف يربح\n{'..name..'} '
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
 if text == DevAek:get(AEK..'Aek:GameNum4'..msg.chat_id_) and not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ المختلف للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ المختلف للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -3403,7 +3403,7 @@ name = string.gsub(name,'شهر','امشي ___ ولا تعبر نهر')
 name = string.gsub(name,'شكه','يامن تعب يامن ___ يا من على الحاضر لكة')
 name = string.gsub(name,'القرد',' ___ بعين امه غزال')
 name = string.gsub(name,'يكحله','اجه ___ عماها')
-AEKTEAM = '♕︙ اكمل المثال التالي ↫ ['..name..']'
+AEKTEAM = '♕︙اكمل المثال التالي ↫ ['..name..']'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
@@ -3411,7 +3411,7 @@ if text == DevAek:get(AEK..'Aek:GameNum5'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 DevAek:del(AEK..'Aek:GameNum5'..msg.chat_id_)
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ امثله للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ امثله للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 end
 DevAek:set(AEK..'Aek:Games:Ids'..msg.chat_id_,true)
@@ -3435,7 +3435,7 @@ name = string.gsub(name,'15','25 - 10 = ?')
 name = string.gsub(name,'39','44 - 5 = ?')
 name = string.gsub(name,'5','12 + 1 - 8 = ?')
 name = string.gsub(name,'16','16 + 16 - 16 = ?')
-AEKTEAM = '♕︙ اكمل المعادله التاليه ↫ ⤈\n{'..name..'} '
+AEKTEAM = '♕︙اكمل المعادله التاليه ↫ ⤈\n{'..name..'} '
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
@@ -3443,7 +3443,7 @@ if text == DevAek:get(AEK..'Aek:GameNum6'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 DevAek:del(AEK..'Aek:GameNum6'..msg.chat_id_)
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ رياضيات للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ رياضيات للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 end
 DevAek:set(AEK..'Aek:Games:Ids'..msg.chat_id_,true)
@@ -3466,7 +3466,7 @@ name = string.gsub(name,'تمساح','crocodile')
 name = string.gsub(name,'شاطئ','Beach')
 name = string.gsub(name,'غبي','Stupid')
 name = string.gsub(name,'صداقه','Friendchip')
-AEKTEAM = '♕︙ ما معنى كلمة ↫ '..name
+AEKTEAM = '♕︙ما معنى كلمة ↫ '..name
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
@@ -3474,7 +3474,7 @@ if text == DevAek:get(AEK..'Aek:GameNum7'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 DevAek:del(AEK..'Aek:GameNum7'..msg.chat_id_)
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ انكليزيه للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ انكليزيه للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 end
 DevAek:set(AEK..'Aek:Games:Ids'..msg.chat_id_,true)
@@ -3486,37 +3486,37 @@ DevAek2 = {'النيل','14','الفم','11','30','بوتين','ستيف جوب�
 name = DevAek2[math.random(#DevAek2)]
 DevAek:set(AEK..'Aek:GameNum8'..msg.chat_id_,name)
 DevAek:del(AEK..'Aek:Games:Ids'..msg.chat_id_)
-name = string.gsub(name,'النيل','♕︙ ماهو اطول نهر في العالم ؟\n1- النيل\n2- الفرات\n3- نهر الكونغو')
-name = string.gsub(name,'14','♕︙ ماعدد عظام الوجه ؟\n1- 15\n2- 13\n3- 14')
-name = string.gsub(name,'الفم','♕︙ كراسي بيضاء وجدران ورديه اذا اغلقته اصبح ظلام  فمن اكون ؟\n1- الفم\n2- الاذن\n3- الثلاجه')
-name = string.gsub(name,'11','♕︙ كم جزء يحتوي مسلسل وادي الذئاب ؟\n1- 7\n2- 15\n3- 11')
-name = string.gsub(name,'30','♕︙ كم جزء يحتوي القران الكريم ؟\n1- 60\n2- 70\n3- 30')
-name = string.gsub(name,'بوتين','♕︙ من هوه اغنى رئيس في العالم ؟\n1- ترامب\n2- اوباما\n3- بوتين')
-name = string.gsub(name,'ستيف جوبر','♕︙ من هوه مؤسس شركه ابل العالميه  ؟\n1- لاري بايج\n2- بيل جيتس\n3- ستيف جوبر')
+name = string.gsub(name,'النيل','♕︙ماهو اطول نهر في العالم ؟\n1- النيل\n2- الفرات\n3- نهر الكونغو')
+name = string.gsub(name,'14','♕︙ماعدد عظام الوجه ؟\n1- 15\n2- 13\n3- 14')
+name = string.gsub(name,'الفم','♕︙كراسي بيضاء وجدران ورديه اذا اغلقته اصبح ظلام  فمن اكون ؟\n1- الفم\n2- الاذن\n3- الثلاجه')
+name = string.gsub(name,'11','♕︙كم جزء يحتوي مسلسل وادي الذئاب ؟\n1- 7\n2- 15\n3- 11')
+name = string.gsub(name,'30','♕︙كم جزء يحتوي القران الكريم ؟\n1- 60\n2- 70\n3- 30')
+name = string.gsub(name,'بوتين','♕︙من هوه اغنى رئيس في العالم ؟\n1- ترامب\n2- اوباما\n3- بوتين')
+name = string.gsub(name,'ستيف جوبر','♕︙من هوه مؤسس شركه ابل العالميه  ؟\n1- لاري بايج\n2- بيل جيتس\n3- ستيف جوبر')
 name = string.gsub(name,'باريس','ماهي عاصمه فرنسا ؟\n1- باريس\n2- لوين\n3- موسكو')
-name = string.gsub(name,'10','♕︙ ماعدد دول العربيه التي توجد في افريقيا ؟\n1- 10\n2- 17\n3- 9')
-name = string.gsub(name,'النمل','♕︙ ماهو الحيوان الذي يحمل 50 فوق وزنه ؟\n1- الفيل\n2- النمل\n3- الثور')
-name = string.gsub(name,'حرف الواو','♕︙ ماذا يوجد بيني وبينك ؟\n1- الضل\n2- الاخلاق\n3- حرف الواو')
-name = string.gsub(name,'الشعر','♕︙ ماهو الشيء النبات ينبت للانسان بلا بذر ؟\n1- الاضافر\n2- الاسنان\n3- الشعر')
-name = string.gsub(name,'سحاب','♕︙ ما هو الشّيء الذي يستطيع المشي بدون أرجل والبكاء بدون أعين ؟\n1- سحاب\n2- بئر\n3- نهر')
-name = string.gsub(name,'الاسم','♕︙ ما الشيء الذي نمتلكه , لكنّ غيرنا يستعمله أكثر منّا ؟\n1- العمر\n2- ساعه\n3- الاسم')
-name = string.gsub(name,'ذهب','♕︙ اصفر اللون سارق عقول اهل الكون وحارمهم لذيذ النوم ؟\n1- نحاس\n2- الماس\n3- ذهب')
-name = string.gsub(name,'حرف الام','♕︙ في الليل ثلاثة لكنه في النهار واحده فما هو ؟\n1- حرف الباء\n2- حرف الام\n3- حرف الراء')
-name = string.gsub(name,'العزائم','♕︙ على قدر اصل العزم تأتي ؟\n1- العزائم\n2- المكارم\n3- المبائب')
-name = string.gsub(name,'انسات','♕︙ ماهي جمع كلمه انسه ؟\n1- سيدات\n2- انسات\n3- قوانص')
-name = string.gsub(name,'المنجنيق','♕︙ اله اتسعلمت قديما في الحروب ؟\n1- الصاروخ\n2- المسدس\n3- المنجنيق')
-name = string.gsub(name,'اسيا','♕︙ تقع لبنان في قاره ؟\n1- افريقيا\n2- اسيا\n3- امركيا الشماليه')
-name = string.gsub(name,'6','♕︙ كم صفرا للمليون ؟\n1- 4\n2- 3\n3- 6')
-name = string.gsub(name,'الاسد','♕︙ ماهو الحيوان الذي يلقب بملك الغابه ؟\n1- الفيل\n2- الاسد\n3- النمر')
-name = string.gsub(name,'مهر','♕︙ ما اسم صغير الحصان ؟\n1- مهر\n2- جرو\n3- عجل')
-name = string.gsub(name,'الدولفين','♕︙ ما الحيوان الذي ينام واحدى عينه مفتوحه ؟\n1- القرش\n2- الدولفين\n3- الثعلب\n')
-name = string.gsub(name,'اوروبا','♕︙ ماهي القاره التي تلقب بالقاره العجوز ؟\n1- اوروبا\n2- امريكا الشماليه\n3- افريقيا')
-name = string.gsub(name,'الزئبق','♕︙ ما اسم المعدن الموجود فيي الحاله السائله ؟\n1- النحاس\n2- الحديد\n3- الزئبق')
-name = string.gsub(name,'لندن','♕︙ ماهي عاصمه انجلترا ؟\n1- لندن\n2- لفرسول\n3- تركيا')
-name = string.gsub(name,'الانسان','♕︙ ماهو الشئ الذي برأسه سبع فتحات ؟\n1- الهاتف\n2- التلفاز\n3- الانسان')
-name = string.gsub(name,'طوكيو','♕︙ ماهي عاصمه اليابان ؟\n1- بانكول\n2- نيو دلهي\n3- طوكيو')
-name = string.gsub(name,'خديجه','♕︙ من هي زوجه الرسول الاكبر منه سنآ ؟\n1- حفضه\n2- زينب\n3- خديجه')
-AEKTEAM = name..'\n♕︙ ارسل الجواب الصحيح فقط'
+name = string.gsub(name,'10','♕︙ماعدد دول العربيه التي توجد في افريقيا ؟\n1- 10\n2- 17\n3- 9')
+name = string.gsub(name,'النمل','♕︙ماهو الحيوان الذي يحمل 50 فوق وزنه ؟\n1- الفيل\n2- النمل\n3- الثور')
+name = string.gsub(name,'حرف الواو','♕︙ماذا يوجد بيني وبينك ؟\n1- الضل\n2- الاخلاق\n3- حرف الواو')
+name = string.gsub(name,'الشعر','♕︙ماهو الشيء النبات ينبت للانسان بلا بذر ؟\n1- الاضافر\n2- الاسنان\n3- الشعر')
+name = string.gsub(name,'سحاب','♕︙ما هو الشّيء الذي يستطيع المشي بدون أرجل والبكاء بدون أعين ؟\n1- سحاب\n2- بئر\n3- نهر')
+name = string.gsub(name,'الاسم','♕︙ما الشيء الذي نمتلكه , لكنّ غيرنا يستعمله أكثر منّا ؟\n1- العمر\n2- ساعه\n3- الاسم')
+name = string.gsub(name,'ذهب','♕︙اصفر اللون سارق عقول اهل الكون وحارمهم لذيذ النوم ؟\n1- نحاس\n2- الماس\n3- ذهب')
+name = string.gsub(name,'حرف الام','♕︙في الليل ثلاثة لكنه في النهار واحده فما هو ؟\n1- حرف الباء\n2- حرف الام\n3- حرف الراء')
+name = string.gsub(name,'العزائم','♕︙على قدر اصل العزم تأتي ؟\n1- العزائم\n2- المكارم\n3- المبائب')
+name = string.gsub(name,'انسات','♕︙ماهي جمع كلمه انسه ؟\n1- سيدات\n2- انسات\n3- قوانص')
+name = string.gsub(name,'المنجنيق','♕︙اله اتسعلمت قديما في الحروب ؟\n1- الصاروخ\n2- المسدس\n3- المنجنيق')
+name = string.gsub(name,'اسيا','♕︙تقع لبنان في قاره ؟\n1- افريقيا\n2- اسيا\n3- امركيا الشماليه')
+name = string.gsub(name,'6','♕︙كم صفرا للمليون ؟\n1- 4\n2- 3\n3- 6')
+name = string.gsub(name,'الاسد','♕︙ماهو الحيوان الذي يلقب بملك الغابه ؟\n1- الفيل\n2- الاسد\n3- النمر')
+name = string.gsub(name,'مهر','♕︙ما اسم صغير الحصان ؟\n1- مهر\n2- جرو\n3- عجل')
+name = string.gsub(name,'الدولفين','♕︙ما الحيوان الذي ينام واحدى عينه مفتوحه ؟\n1- القرش\n2- الدولفين\n3- الثعلب\n')
+name = string.gsub(name,'اوروبا','♕︙ماهي القاره التي تلقب بالقاره العجوز ؟\n1- اوروبا\n2- امريكا الشماليه\n3- افريقيا')
+name = string.gsub(name,'الزئبق','♕︙ما اسم المعدن الموجود فيي الحاله السائله ؟\n1- النحاس\n2- الحديد\n3- الزئبق')
+name = string.gsub(name,'لندن','♕︙ماهي عاصمه انجلترا ؟\n1- لندن\n2- لفرسول\n3- تركيا')
+name = string.gsub(name,'الانسان','♕︙ماهو الشئ الذي برأسه سبع فتحات ؟\n1- الهاتف\n2- التلفاز\n3- الانسان')
+name = string.gsub(name,'طوكيو','♕︙ماهي عاصمه اليابان ؟\n1- بانكول\n2- نيو دلهي\n3- طوكيو')
+name = string.gsub(name,'خديجه','♕︙من هي زوجه الرسول الاكبر منه سنآ ؟\n1- حفضه\n2- زينب\n3- خديجه')
+AEKTEAM = name..'\n♕︙ارسل الجواب الصحيح فقط'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 return false
 end end
@@ -3524,7 +3524,7 @@ if text == DevAek:get(AEK..'Aek:GameNum8'..msg.chat_id_) then
 if not DevAek:get(AEK..'Aek:Games:Ids'..msg.chat_id_) then 
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_, 1)  
 DevAek:del(AEK..'Aek:GameNum8'..msg.chat_id_)
-AEKTEAM = '♕︙ مبروك لقد ربحت في اللعبه \n♕︙ ارسل ↫ الاسئله للعب مره اخرى'
+AEKTEAM = '♕︙مبروك لقد ربحت في اللعبه \n♕︙ارسل ↫ الاسئله للعب مره اخرى'
 Dev_Aek(msg.chat_id_, msg.id_, 1,AEKTEAM, 1, 'md')
 end
 DevAek:set(AEK..'Aek:Games:Ids'..msg.chat_id_,true)
@@ -3534,27 +3534,27 @@ if DevAek:get(AEK.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) th
 if text and text:match("^(%d+)$") then
 local NUM = text:match("^(%d+)$")
 if tonumber(NUM) > 20 then
-Dev_Aek(msg.chat_id_, msg.id_, 1,"♕︙ عذرا لا يمكنك تخمين عدد اكبر من الـ20 خمن رقم ما بين الـ1 والـ20", 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,"♕︙عذرا لا يمكنك تخمين عدد اكبر من الـ20 خمن رقم ما بين الـ1 والـ20", 1, 'md')
 return false  end 
 local GETNUM = DevAek:get(AEK.."GAMES:NUM"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 DevAek:del(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_)
 DevAek:del(AEK.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 DevAek:incrby(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_,5)  
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ *التخمين الصحيح هو* ↫ '..NUM..'\n♕︙ *مبروك لقد ربحت وحصلت على 5 نقاط يمكنك استبدالها بالرسائل*', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙*التخمين الصحيح هو* ↫ '..NUM..'\n♕︙*مبروك لقد ربحت وحصلت على 5 نقاط يمكنك استبدالها بالرسائل*', 1, 'md')
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 DevAek:incrby(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_,1)
 if tonumber(DevAek:get(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_)) >= 3 then
 DevAek:del(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_)
 DevAek:del(AEK.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ *التخمين الصحيح هو* ↫ '..GETNUM..'\n♕︙ *للاسف لقد خسرت حاول مره اخرى لتخمين الرقم الصحيح*', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙*التخمين الصحيح هو* ↫ '..GETNUM..'\n♕︙*للاسف لقد خسرت حاول مره اخرى لتخمين الرقم الصحيح*', 1, 'md')
 else
 if tonumber(DevAek:get(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_)) == 1 then
 SetNum = 'محاولتان فقط'
 elseif tonumber(DevAek:get(AEK..'Set:Num'..msg.chat_id_..msg.sender_user_id_)) == 2 then
 SetNum = 'محاوله واحده فقط'
 end
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ لقد خمنت الرقم الخطا وتبقى لديك '..SetNum..' ارسل رقم تخمنه مره اخرى للفوز', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙لقد خمنت الرقم الخطا وتبقى لديك '..SetNum..' ارسل رقم تخمنه مره اخرى للفوز', 1, 'md')
 end
 end
 end
@@ -3563,7 +3563,7 @@ if text == 'خمن' and ChCheck(msg) or text == 'تخمين' and ChCheck(msg) th
 if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
 Num = math.random(1,20)
 DevAek:set(AEK.."GAMES:NUM"..msg.chat_id_,Num) 
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ اهلا بك عزيزي في لعبة التخمين ↫ ⤈\n ━───━ ♕ ━───━\n♕︙ سيتم تخمين عدد ما بين الـ1 والـ20 اذا تعتقد انك تستطيع الفوز جرب واللعب الان .\n♕︙ ملاحظه لديك ثلاث محاولات فقط فكر قبل ارسال تخمينك !', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙اهلا بك عزيزي في لعبة التخمين ↫ ⤈\n ━───━ ♕ ━───━\n♕︙سيتم تخمين عدد ما بين الـ1 والـ20 اذا تعتقد انك تستطيع الفوز جرب واللعب الان .\n♕︙ملاحظه لديك ثلاث محاولات فقط فكر قبل ارسال تخمينك !', 1, 'md')
 DevAek:setex(AEK.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
 return false  
 end
@@ -3574,16 +3574,16 @@ if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
 DevAek:del(AEK.."Aek:NumRolet"..msg.chat_id_..msg.sender_user_id_) 
 DevAek:del(AEK..'Aek:ListRolet'..msg.chat_id_)  
 DevAek:setex(AEK.."Aek:StartRolet"..msg.chat_id_..msg.sender_user_id_,3600,true)  
-Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙ حسنا لنلعب , ارسل عدد اللاعبين للروليت .', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙حسنا لنلعب , ارسل عدد اللاعبين للروليت .', 1, 'md')
 return false  
 end
 end
 if text:match("^(%d+)$") and DevAek:get(AEK.."Aek:StartRolet"..msg.chat_id_..msg.sender_user_id_) then
 if text == "1" then
-Text = "♕︙ لا استطيع بدء اللعبه بلاعب واحد فقط"
+Text = "♕︙لا استطيع بدء اللعبه بلاعب واحد فقط"
 else
 DevAek:set(AEK.."Aek:NumRolet"..msg.chat_id_..msg.sender_user_id_,text)  
-Text = '♕︙ تم بدء تسجيل اللسته يرجى ارسال المعرفات \n♕︙ الفائز يحصل على 5 نقاط عدد المطلوبين ↫ '..text..' لاعب'
+Text = '♕︙تم بدء تسجيل اللسته يرجى ارسال المعرفات \n♕︙الفائز يحصل على 5 نقاط عدد المطلوبين ↫ '..text..' لاعب'
 end
 DevAek:del(AEK.."Aek:StartRolet"..msg.chat_id_..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,Text)
@@ -3591,12 +3591,12 @@ return false
 end
 if text:match('^(@[%a%d_]+)$') and DevAek:get(AEK.."Aek:NumRolet"..msg.chat_id_..msg.sender_user_id_) then 
 if DevAek:sismember(AEK..'Aek:ListRolet'..msg.chat_id_,text) then
-send(msg.chat_id_,msg.id_,'♕︙ المعرف ↫ ['..text..'] موجود اساسا')
+send(msg.chat_id_,msg.id_,'♕︙المعرف ↫ ['..text..'] موجود اساسا')
 return false
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text},function(extra, res, success) 
 if res and res.message_ and res.message_ == "USERNAME_NOT_OCCUPIED" then 
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ المعرف غير صحيح يرجى ارسال معرف صحيح', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙المعرف غير صحيح يرجى ارسال معرف صحيح', 1, 'md')
 return false 
 end
 DevAek:sadd(AEK..'Aek:ListRolet'..msg.chat_id_,text)
@@ -3606,13 +3606,13 @@ local CountUser = CountAdd - CountAll
 if tonumber(CountAll) == tonumber(CountAdd) then 
 DevAek:del(AEK.."Aek:NumRolet"..msg.chat_id_..msg.sender_user_id_) 
 DevAek:setex(AEK.."Aek:WittingStartRolet"..msg.chat_id_..msg.sender_user_id_,1400,true) 
-local Text = "♕︙ تم ادخال المعرف ↫ ["..text.."]\n♕︙ وتم اكتمال العدد الكلي هل انت مستعد ؟"
+local Text = "♕︙تم ادخال المعرف ↫ ["..text.."]\n♕︙وتم اكتمال العدد الكلي هل انت مستعد ؟"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text="نعم",callback_data="/YesRolet"},{text="لا",callback_data="/NoRolet"}},{{text="اللاعبين",callback_data="/ListRolet"}}} 
 Msg_id = msg.id_/2097152/0.5
 return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end 
-local Text = "♕︙ تم ادخال المعرف ↫ ["..text.."] وتبقى ↫ "..CountUser.." لاعبين ليكتمل العدد ارسل المعرف الاخر"
+local Text = "♕︙تم ادخال المعرف ↫ ["..text.."] وتبقى ↫ "..CountUser.." لاعبين ليكتمل العدد ارسل المعرف الاخر"
 keyboard = {} 
 keyboard.inline_keyboard = {{{text="الغاء",callback_data="/NoRolet"}}} 
 Msg_id = msg.id_/2097152/0.5
@@ -3620,41 +3620,50 @@ return https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?cha
 end,nil) 
 end
 --     Source AEK     --
+if text == 'كت تويت' and ChCheck(msg) then
+if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
+local AEKTEAM = {  "آخر مرة زرت مدينة الملاهي؟",  "آخر مرة أكلت أكلتك المفضّلة؟",  "الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل",  "آخر شيء ضاع منك؟","كلمة أخيرة لشاغل البال؟","طريقتك المعتادة في التخلّص من الطاقة السلبية؟","شهر من أشهر العام له ذكرى جميلة معك؟","كلمة غريبة من لهجتك ومعناها؟🤓","‏- شيء سمعته عالق في ذهنك هاليومين؟","متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟","‏- أبرز صفة حسنة في صديقك المقرب؟","هل تشعر أن هنالك مَن يُحبك؟","اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟","أجمل شيء حصل معك خلال هاليوم؟","صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔","كلمة لشخص غالي اشتقت إليه؟💕","آخر خبر سعيد، متى وصلك؟","أنا آسف على ....؟","أوصف نفسك بكلمة؟","صريح، مشتاق؟","‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟","‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭","‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤","‏- تخيّل شيء قد يحدث في المستقبل؟","‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚","شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟","| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.", }  
+Dev_Aek(msg.chat_id_, msg.id_, 1, ''..AEKTEAM[math.random(#AEKTEAM)]..'' , 1, 'md')  
+return false
+end
+end
+--     Source AEK     --
 if text == 'الالعاب' and ChCheck(msg) or text == 'العاب' and ChCheck(msg) or text == 'اللعبه' and ChCheck(msg) then
 if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
 Dev_Aek(msg.chat_id_, msg.id_, 1,[[
-♕︙ قائمة العاب المجموعه ↫ ⤈
+♕︙قائمة العاب المجموعه ↫ ⤈
 ━───━ ♕ ━───━
-♕︙ لعبة التخمين ↫ خمن
-♕︙ لعبة الامثله ↫ امثله
-♕︙ لعبة العكس ↫ العكس
-♕︙ لعبة الاسئله ↫ اسئله
-♕︙ لعبة الروليت ↫ روليت
-♕︙ لعبة الحزوره ↫ حزوره
-♕︙ لعبة الترتيب ↫ ترتيب
-♕︙ لعبة المعاني ↫ معاني
-♕︙ لعبة المختلف ↫ المختلف
-♕︙ لعبة السمايلات ↫ سمايلات
-♕︙ لعبة المحيبس ↫ المحيبس
-♕︙ لعبة الرياضيات ↫ رياضيات
-♕︙ لعبة الانكليزيه ↫ انكليزيه
+♕︙لعبة التخمين ↫ خمن
+♕︙لعبة الامثله ↫ امثله
+♕︙لعبة العكس ↫ العكس
+♕︙لعبة الاسئله ↫ اسئله
+♕︙لعبة الروليت ↫ روليت
+♕︙لعبة الحزوره ↫ حزوره
+♕︙لعبة الترتيب ↫ ترتيب
+♕︙لعبة المعاني ↫ معاني
+♕︙لعبة التويت ↫ كت تويت
+♕︙لعبة المختلف ↫ المختلف
+♕︙لعبة السمايلات ↫ سمايلات
+♕︙لعبة المحيبس ↫ المحيبس
+♕︙لعبة الرياضيات ↫ رياضيات
+♕︙لعبة الانكليزيه ↫ انكليزيه
 ━───━ ♕ ━───━
-♕︙ نقاطي • بيع نقاطي
+♕︙نقاطي • بيع نقاطي
 ━───━ ♕ ━───━
 ♕︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
 ]], 1, 'md')
 else
-Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙ عذرا الالعاب معطله في المجموعه', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙عذرا الالعاب معطله في المجموعه', 1, 'md')
 end
 end
 --     Source AEK     --
 if text == 'بيع نقاطي' and ChCheck(msg) then
 if tonumber((DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_) or 0)) == 0 then
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ لم تربح اي نقطه\n♕︙ ارسل ↫ الالعاب للعب', 1, 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙لم تربح اي نقطه\n♕︙ارسل ↫ الالعاب للعب', 1, 'md')
 else
 DevAek0 = (DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_) * 50)
 DevAek:incrby(AEK..'Aek:UsersMsgs'..msg.chat_id_..':'..msg.sender_user_id_,DevAek0)
-Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙ تم بيع '..(DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_))..' من نقاطك\n♕︙ كل نقطه تساوي 50 رساله', 'md')
+Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙تم بيع '..(DevAek:get(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_))..' من نقاطك\n♕︙كل نقطه تساوي 50 رساله', 'md')
 DevAek:del(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_)
 end
 end
@@ -8547,12 +8556,12 @@ if ChatType == 'sp' or ChatType == 'gp'  then
 if text == 'تفعيل الالعاب' and Manager(msg) and ChCheck(msg) or text == 'تفعيل اللعبه' and Manager(msg) and ChCheck(msg) then   
 local AEKTEAM = '♕︙ اهلا عزيزي ↫ '..AekRank(msg)..' \n♕︙ تم تفعيل الالعاب بنجاح'
 Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg.sender_user_id_))
-DevAek:set(AEK..'Aek:Lock:Games'..msg.chat_id_,true)  
+DevAek:del(AEK..'Aek:Lock:Games'..msg.chat_id_) 
 end
 if text == 'تعطيل الالعاب' and Manager(msg) and ChCheck(msg) or text == 'تعطيل اللعبه' and Manager(msg) and ChCheck(msg) then  
 local AEKTEAM = '♕︙ اهلا عزيزي ↫ '..AekRank(msg)..' \n♕︙ تم تعطيل الالعاب بنجاح'
 Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg.sender_user_id_))
-DevAek:del(AEK..'Aek:Lock:Games'..msg.chat_id_) 
+DevAek:set(AEK..'Aek:Lock:Games'..msg.chat_id_,true)  
 end
 if text == "تفعيل الرابط" or text == "تفعيل جلب الرابط" then 
 if Admin(msg) then
