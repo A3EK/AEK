@@ -3509,7 +3509,7 @@ DevAek:del(AEK..'Aek:GamesNumber'..msg.chat_id_..msg.sender_user_id_)
 end
 end
 --     Source AEK     --
-if text == 'رفع المشرفين' and ChCheck(msg) or text == 'رفع الادمنيه' and ChCheck(msg) then  
+if text == 'رفع المشرفين' and Manager(msg) and ChCheck(msg) or text == 'رفع الادمنيه' and Manager(msg) and ChCheck(msg) then  
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 200},function(arg,Aekan) 
 DevAek:del(AEK..'Aek:AekConstructor:'..msg.chat_id_)
 local num = 0
@@ -6239,7 +6239,7 @@ local List = {
 ]],
 [[
 ➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
-➞: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➸💞.
+➞: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➸??.
 ➞: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➸💞.
 ➞: ??𝒅 𓂅 #id 𓍯➸💞.
 ]],
