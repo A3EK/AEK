@@ -966,6 +966,16 @@ keyboard = {}
 keyboard.inline_keyboard = {{{text="نعم",callback_data="/YesRolet"},{text="لا",callback_data="/NoRolet"}}} 
 return https.request("https://api.telegram.org/bot"..TokenBot..'/editMessageText?chat_id='..Chat_Id2..'&message_id='..Msg_Id2..'&text=' .. URL.escape(Text..Textt).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+if DataText == '/UnTkeed' then
+if DevAek:sismember(AEK..'Aek:Tkeed:'..Chat_Id2, data.sender_user_id_) then
+HTTPS.request("https://api.telegram.org/bot"..TokenBot.."/restrictChatMember?chat_id="..Chat_Id2.."&user_id="..data.sender_user_id_.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+DevAek:srem(AEK..'Aek:Tkeed:'..Chat_Id2, data.sender_user_id_)
+DeleteMessage(Chat_Id2,{[0] = MsgId2})
+return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("♕︙تم الغاء تقيدك من المجموعه بنجاح .")..'&show_alert=true')
+else
+return https.request("https://api.telegram.org/bot"..TokenBot..'/answercallbackquery?callback_query_id='..data.id_..'&text='..URL.escape("♕︙عذرا هذا الامر لكشف الروبوت وليس لك .")..'&show_alert=true')
+end 
+end
 end
 if (data.ID == "UpdateNewMessage") then
 local msg = data.message_
@@ -1625,6 +1635,18 @@ end
 --     Source AEK     --
 -------- MSG TYPES ---------
 if msg.content_.ID == "MessageChatJoinByLink" and not VipMem(msg) then 
+if DevAek:get(AEK..'Aek:Lock:Robot'..msg.chat_id_) then
+tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(arg,dp) 
+HTTPS.request("https://api.telegram.org/bot"..TokenBot.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..dp.id_)
+DevAek:sadd(AEK..'Aek:Tkeed:'..msg.chat_id_, dp.id_)
+local Text = '♕︙اهلا عزيزي ↫ ['..string.sub(dp.first_name_,0, 40)..'](tg://user?id='..dp.id_..')\n♕︙يجب علينا التأكد أنك لست روبوت\n♕︙تم تقييدك اضغط الزر بالاسفل لفكه'
+keyboard = {} 
+keyboard.inline_keyboard = {{{text="اضغط هنا لفك تقييدك",callback_data="/UnTkeed"}}} 
+Msg_id = msg.id_/2097152/0.5
+HTTPS.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)
+return false
+end
 if DevAek:get(AEK.."Aek:Lock:Join"..msg.chat_id_) then
 ChatKick(msg.chat_id_,msg.sender_user_id_) 
 return false  
@@ -2783,7 +2805,7 @@ end
 if text == "الرابط" then
 if not DevAek:get(AEK.."Aek:Lock:GpLinks"..msg.chat_id_) then 
 if DevAek:get(AEK.."Aek:Groups:Links"..msg.chat_id_) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙𝒈𝒓𝒐𝒖𝒑 𝒍𝒊𝒏𝒌 ↬ ⤈ \n━───━ ♕ ━───━\n"..DevAek:get(AEK.."Aek:Groups:Links"..msg.chat_id_), 1, "html")
+Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙𝒈𝒓𝒐𝒖?? 𝒍𝒊𝒏𝒌 ↬ ⤈ \n━───━ ♕ ━───━\n"..DevAek:get(AEK.."Aek:Groups:Links"..msg.chat_id_), 1, "html")
 else 
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙لايوجد رابط ارسل ↫ ضع رابط او ارسل ↫ انشاء رابط للانشاء', 1, 'md')
 end
@@ -8090,6 +8112,17 @@ Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg
 DevAek:set(AEK..'Aek:Lock:Stupid'..msg.chat_id_,true)
 end
 --     Source AEK     --
+if text and (text == 'تعطيل التحقق' or text == 'قفل التحقق' or text == 'تعطيل تنبيه الدخول') and Manager(msg) and ChCheck(msg) then 
+local AEKTEAM = '♕︙اهلا عزيزي ↫ '..AekRank(msg)..' \n♕︙تم تعطيل التحقق بنجاح'
+Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg.sender_user_id_))
+DevAek:del(AEK..'Aek:Lock:Robot'..msg.chat_id_)
+end
+if text and (text == 'تفعيل التحقق' or text == 'فتح التحقق' or text == 'تفعيل تنبيه الدخول') and Manager(msg) and ChCheck(msg) then 
+local AEKTEAM = '♕︙اهلا عزيزي ↫ '..AekRank(msg)..' \n♕︙تم تفعيل التحقق بنجاح'
+Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg.sender_user_id_))
+DevAek:set(AEK..'Aek:Lock:Robot'..msg.chat_id_,true)
+end
+--     Source AEK     --
 if text == 'تفعيل ردود المدير' and Manager(msg) and ChCheck(msg) then 
 local AEKTEAM = '♕︙اهلا عزيزي ↫ '..AekRank(msg)..' \n♕︙تم تفعيل ردود المدير'
 Aekmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, AEKTEAM, 14, string.len(msg.sender_user_id_))
@@ -9243,7 +9276,7 @@ local text =  [[
 ♕︙اطردني • الايدي بالصوره • الابراج
 ♕︙معاني الاسماء • اوامر النسب • التوحيد
 ♕︙الايدي • تحويل الصيغ • اوامر التحشيش
-♕︙ردود المدير • ردود المطور
+♕︙ردود المدير • ردود المطور • التحقق
 ♕︙ضافني • حساب العمر • الزخرفه
 ━───━ ♕ ━───━
 ♕︙[𝘈𝘌𝘒 𝘊𝘩𝘢𝘯𝘯𝘦𝘭](https://t.me/SoalfLove)
