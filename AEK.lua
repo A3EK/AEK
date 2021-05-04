@@ -4,19 +4,29 @@
 --                - AEK -                 --
 --        -- https://t.me/SoalfLove --         --
 ------------------------------------------------ 
+LibsNumber = 0
+for v in io.popen('ls libs'):lines() do
+if v:match(".lua$") then
+LibsNumber = LibsNumber + 1
+end
+end
+if LibsNumber ~= 0 then
+URL = dofile("./libs/url.lua")
+json = dofile("./libs/JSON.lua")
+JSON = dofile("./libs/dkjson.lua")
+serpent = dofile("./libs/serpent.lua")
+DevAek = dofile("./libs/redis.lua").connect("127.0.0.1", 6379)
+else 
 redis = require('redis') 
 URL = require('socket.url') 
-HTTPS = require ("ssl.https") 
-https = require ("ssl.https") 
-http  = require ("socket.http") 
 serpent = require("serpent") 
 json = dofile('./JSON.lua') 
 JSON = dofile('./dkjson.lua') 
-lgi = require('lgi') 
-notify = lgi.require('Notify') 
-utf8 = require ('lua-utf8') 
-notify.init ("Telegram updates") 
-DevAek = redis.connect('127.0.0.1', 6379) 
+DevAek = redis.connect('127.0.0.1', 6379)
+end
+HTTPS = require ("ssl.https") 
+https = require ("ssl.https") 
+http  = require ("socket.http") 
 User = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '')
 ServerAEK = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a') 
 Ip = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a'):gsub('[\n\r]+', '')
@@ -52,6 +62,7 @@ print('\27[1;31m━───━ ♕ ━───━\nلم يتم حفظ توكن
 end  
 os.execute('lua AEK.lua') 
 end
+DevAek:set(DevAek:get(ServerAEK.."TokenAEK"):match("(%d+)")..'Aek:Update',true)
 local Create = function(data, file, uglify)  
 file = io.open(file, "w+")   
 local serialized   
@@ -505,11 +516,6 @@ function ChatLeave(chat_id, user_id)
 changeChatMemberStatus(chat_id, user_id, "Left")
 end
 --     Source AEK     --
-function do_notify(user, msg)
-local n = notify.Notification.new(user, msg)
-n:show ()
-end
---     Source AEK     --
 function ChatKick(chat_id, user_id)
 changeChatMemberStatus(chat_id, user_id, "Kicked")
 end
@@ -596,10 +602,6 @@ disable_notification_ = disable_notification
 }, function(arg ,data)
 vardump(data)
 end ,nil) 
-end
---     Source AEK     --
-function CatchName(Name,Num) 
-ChekName = utf8.sub(Name,0,Num) Name = ChekName return Name..'' 
 end
 --     Source AEK     --
 local AekRank = function(msg) if SudoId(msg.sender_user_id_) then AEKTEAM  = "المطور" elseif SecondSudo(msg) then AEKTEAM = "المطور" elseif SudoBot(msg) then AEKTEAM = "المطور" elseif ManagerAll(msg) then AEKTEAM = "المدير" elseif AdminAll(msg) then AEKTEAM = "الادمن" elseif AekConstructor(msg) then AEKTEAM = "المنشئ" elseif BasicConstructor(msg) then AEKTEAM = "المنشئ" elseif Constructor(msg) then AEKTEAM = "المنشئ" elseif Manager(msg) then AEKTEAM = "المدير" elseif Admin(msg) then AEKTEAM = "الادمن" else AEKTEAM = "العضو" end return AEKTEAM end
@@ -907,10 +909,10 @@ end
 if DataText == '/setyes' then
 local NewDev = DevAek:get(AEK.."Aek:NewDev"..data.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = NewDev},function(arg,dp) 
-EditMsg(Chat_Id2, Msg_Id2, "♕︙المطور الجديد ↫ ["..CatchName(dp.first_name_,15).."](tg://user?id="..dp.id_..")\n♕︙تم تغير المطور الاساسي بنجاح") 
+EditMsg(Chat_Id2, Msg_Id2, "♕︙المطور الجديد ↫ ["..dp.first_name_.."](tg://user?id="..dp.id_..")\n♕︙تم تغير المطور الاساسي بنجاح") 
 end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,dp) 
-SendText(NewDev,"♕︙بواسطة ↫ ["..CatchName(dp.first_name_,15).."](tg://user?id="..dp.id_..")\n♕︙لقد اصبحت انت مطور هذا البوت",0,'md')
+SendText(NewDev,"♕︙بواسطة ↫ ["..dp.first_name_.."](tg://user?id="..dp.id_..")\n♕︙لقد اصبحت انت مطور هذا البوت",0,'md')
 end,nil)
 local Create = function(data, file, uglify)  
 file = io.open(file, "w+")   
@@ -1629,7 +1631,7 @@ end;end,nil)
 --     Source AEK     --
 local ReFalse = tostring(msg.chat_id_)
 if not DevAek:sismember(AEK.."Aek:Groups",msg.chat_id_) and not ReFalse:match("^(%d+)") and not SudoBot(msg) then
-print("Return False [ Not Enable ]")
+print("Return False : The Bot Is Not Enabled In The Group")
 return false
 end
 --     Source AEK     --
@@ -1686,14 +1688,6 @@ DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 return false   
 end
 end
-end
-end
---     Source AEK     --
-if ((not d) and chat) then
-if msg.content_.ID == "MessageText" then
-do_notify (chat.title_, msg.content_.text_)
-else
-do_notify (chat.title_, msg.content_.ID)
 end
 end
 --     Source AEK     --
@@ -1920,7 +1914,7 @@ end
 --       Spam Send        --
 function NotSpam(msg,Type)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dp) 
-local GetName = '['..CatchName(dp.first_name_,15)..'](tg://user?id='..dp.id_..')'
+local GetName = '['..dp.first_name_..'](tg://user?id='..dp.id_..')'
 if Type == "kick" then 
 ChatKick(msg.chat_id_,msg.sender_user_id_) 
 my_ide = msg.sender_user_id_
@@ -2169,14 +2163,14 @@ return
 end
 function get_welcome(extra,result,success)
 if DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_) then
-text = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 else
-text = '• نورت حبي \n• [firstname lastname] \n• [@username]'
+Welcomes = '• نورت حبي \n• firstname \n• @username'
 end
-local text = text:gsub('firstname',(result.first_name_ or ''))
-local text = text:gsub('lastname',(result.last_name_ or ''))
-local text = text:gsub('username',(result.username_ or 'SoalfLove'))
-Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+local Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
+local Welcomes = Welcomes:gsub('firstname',('['..result.first_name_..']' or ''))
+local Welcomes = Welcomes:gsub('username',('[@'..result.username_..']' or '[@SoalfLove]'))
+Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
 end 
 if DevAek:get(AEK.."Aek:Lock:Welcome"..msg.chat_id_) then
 getUser(msg.sender_user_id_,get_welcome)
@@ -2221,14 +2215,14 @@ return false
 end
 if DevAek:get(AEK.."Aek:Lock:Welcome"..msg.chat_id_) then
 if DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_) then
-text = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 else
-text = '• نورت حبي \n• [firstname lastname] \n• [@username]'
+Welcomes = '• نورت حبي \n• firstname \n• @username'
 end
-local text = text:gsub('firstname',(msg.content_.members_[0].first_name_ or ''))
-local text = text:gsub('lastname',(msg.content_.members_[0].last_name_ or ''))
-local text = text:gsub('username',(msg.content_.members_[0].username_ or 'SoalfLove'))
-Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+local Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
+local Welcomes = Welcomes:gsub('firstname',('['..result.first_name_..']' or ''))
+local Welcomes = Welcomes:gsub('username',('[@'..result.username_..']' or '[@SoalfLove]'))
+Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
 end
 --     Source AEK     --
 --        Contact         --
@@ -2631,6 +2625,7 @@ local GetJson = '{"BotId": '..AEK..',"BotName": "'..BotName..'","GroupsList":{'
 for k,v in pairs(List) do 
 LinkGroups = DevAek:get(AEK.."Aek:Groups:Links"..v)
 Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..v) or ''
+Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
 AekConstructors = DevAek:smembers(AEK..'Aek:AekConstructor:'..v)
 Constructors = DevAek:smembers(AEK..'Aek:BasicConstructor:'..v)
 BasicConstructors = DevAek:smembers(AEK..'Aek:Constructor:'..v)
@@ -3484,7 +3479,12 @@ end
 --     Source AEK     --
 if text == 'كت تويت' and ChCheck(msg) then
 if not DevAek:get(AEK..'Aek:Lock:Games'..msg.chat_id_) then
-local AEKTEAM = {  "آخر مرة زرت مدينة الملاهي؟",  "آخر مرة أكلت أكلتك المفضّلة؟",  "الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل",  "آخر شيء ضاع منك؟","كلمة أخيرة لشاغل البال؟","طريقتك المعتادة في التخلّص من الطاقة السلبية؟","شهر من أشهر العام له ذكرى جميلة معك؟","كلمة غريبة من لهجتك ومعناها؟🤓","‏- شيء سمعته عالق في ذهنك هاليومين؟","متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟","‏- أبرز صفة حسنة في صديقك المقرب؟","هل تشعر أن هنالك مَن يُحبك؟","اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟","أجمل شيء حصل معك خلال هاليوم؟","صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔","كلمة لشخص غالي اشتقت إليه؟💕","آخر خبر سعيد، متى وصلك؟","أنا آسف على ....؟","أوصف نفسك بكلمة؟","صريح، مشتاق؟","‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟","‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭","‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤","‏- تخيّل شيء قد يحدث في المستقبل؟","‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚","شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟","| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.", }  
+local AEKTEAM = {
+'آخر مرة زرت مدينة الملاهي؟','آخر مرة أكلت أكلتك المفضّلة؟','الوضع الحالي؟\n‏1. سهران\n‏2. ضايج\n‏3. أتأمل','آخر شيء ضاع منك؟','كلمة أخيرة لشاغل البال؟','طريقتك المعتادة في التخلّص من الطاقة السلبية؟','شهر من أشهر العام له ذكرى جميلة معك؟','كلمة غريبة من لهجتك ومعناها؟🤓','‏- شيء سمعته عالق في ذهنك هاليومين؟','متى تكره الشخص الذي أمامك حتى لو كنت مِن أشد معجبينه؟','‏- أبرز صفة حسنة في صديقك المقرب؟','هل تشعر أن هنالك مَن يُحبك؟','اذا اكتشفت أن أعز أصدقائك يضمر لك السوء، موقفك الصريح؟','أجمل شيء حصل معك خلال هاليوم؟','صِف شعورك وأنت تُحب شخص يُحب غيرك؟👀💔','كلمة لشخص غالي اشتقت إليه؟💕','آخر خبر سعيد، متى وصلك؟','أنا آسف على ....؟','أوصف نفسك بكلمة؟','صريح، مشتاق؟','‏- صريح، هل سبق وخذلت أحدهم ولو عن غير قصد؟','‏- ماذا ستختار من الكلمات لتعبر لنا عن حياتك التي عشتها الى الآن؟💭','‏- فنان/ة تود لو يدعوكَ على مائدة عشاء؟😁❤','‏- تخيّل شيء قد يحدث في المستقبل؟','‏- للشباب | آخر مرة وصلك غزل من فتاة؟🌚','شخص أو صاحب عوضك ونساك مُر الحياة ما اسمه ؟','| اذا شفت حد واعجبك وعندك الجرأه انك تروح وتتعرف عليه ، مقدمة الحديث شو راح تكون ؟.','كم مره تسبح باليوم','نسبة النعاس عندك حاليًا؟','لو فقط مسموح شخص واحد تتابعه فالسناب مين بيكون ؟','يهمك ملابسك تكون ماركة ؟','وش الشيء الي تطلع حرتك فيه و زعلت ؟','عندك أخوان او خوات من الرضاعة؟','عندك معجبين ولا محد درا عنك؟',
+'أطول مدة قضيتها بعيد عن أهلك ؟','لو يجي عيد ميلادك تتوقع يجيك هدية؟','يبان عليك الحزن من " صوتك - ملامحك','وين تشوف نفسك بعد سنتين؟','وش يقولون لك لما تغني ؟','عندك حس فكاهي ولا نفسية؟','كيف تتصرف مع الشخص الفضولي ؟','كيف هي أحوال قلبك؟','حاجة تشوف نفسك مبدع فيها ؟','متى حبيت؟','شيء كل م تذكرته تبتسم ...','العلاقه السريه دايماً تكون حلوه؟','صوت مغني م تحبه','لو يجي عيد ميلادك تتوقع يجيك هدية؟','اذا احد سألك عن شيء م تعرفه تقول م اعرف ولا تتفلسف ؟','مع او ضد : النوم افضل حل لـ مشاكل الحياة؟','مساحة فارغة (..............) اكتب اي شيء تبين','اغرب اسم مر عليك ؟','عمرك كلمت فويس احد غير جنسك؟','اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟','لو عندك فلوس وش السيارة اللي بتشتريها؟','وش اغبى شيء سويته ؟','شيء من صغرك ماتغير فيك؟','وش نوع الأفلام اللي تحب تتابعه؟','وش نوع الأفلام اللي تحب تتابعه؟','تجامل احد على حساب مصلحتك ؟','تتقبل النصيحة من اي شخص؟','كلمه ماسكه معك الفترة هذي ؟','متى لازم تقول لا ؟','اكثر شيء تحس انه مات ف مجتمعنا؟','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','تؤمن ان في "حُب من أول نظرة" ولا لا ؟.','هل تعتقد أن هنالك من يراقبك بشغف؟','اشياء اذا سويتها لشخص تدل على انك تحبه كثير ؟','اشياء صعب تتقبلها بسرعه ؟','اقتباس لطيف؟','أكثر جملة أثرت بك في حياتك؟','عندك فوبيا من شيء ؟.',
+'اكثر لونين تحبهم مع بعض؟','أجمل بيت شعر سمعته ...','سبق وراودك شعور أنك لم تعد تعرف نفسك؟','تتوقع فيه احد حاقد عليك ويكرهك ؟','أجمل سنة ميلادية مرت عليك ؟','لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟','وش تحس انك تحتاج الفترة هاذي ؟','يومك ضاع على؟','@منشن .. شخص تخاف منه اذا عصب ...','فيلم عالق في ذهنك لا تنساه مِن روعته؟','تختار أن تكون غبي أو قبيح؟','الفلوس او الحب ؟','أجمل بلد في قارة آسيا بنظرك؟','ما الذي يشغل بالك في الفترة الحالية؟','احقر الناس هو من ...','وين نلقى السعاده برايك؟','اشياء تفتخر انك م سويتها ؟','تزعلك الدنيا ويرضيك ؟','وش الحب بنظرك؟','افضل هديه ممكن تناسبك؟','كم في حسابك البنكي ؟','كلمة لشخص أسعدك رغم حزنك في يومٍ من الأيام ؟','عمرك انتقمت من أحد ؟!','ما السيء في هذه الحياة ؟','غنية عندك معاها ذكريات🎵🎻','/','أفضل صفة تحبه بنفسك؟','اكثر وقت تحب تنام فيه ...','أطول مدة نمت فيها كم ساعة؟','أصعب قرار ممكن تتخذه ؟','أفضل صفة تحبه بنفسك؟','اكثر وقت تحب تنام فيه ...','أنت محبوب بين الناس؟ ولاكريه؟','إحساسك في هاللحظة؟','اخر شيء اكلته ؟','تشوف الغيره انانيه او حب؟','اذكر موقف ماتنساه بعمرك؟','اكثر مشاكلك بسبب ؟','اول ماتصحى من النوم مين تكلمه؟','آخر مرة ضحكت من كل قلبك؟','لو الجنسية حسب ملامحك وش بتكون جنسيتك؟','اكثر شيء يرفع ضغطك','اذكر موقف ماتنساه بعمرك؟','لو قالوا لك  تناول صنف واحد فقط من الطعام لمدة شهر .',
+'كيف تشوف الجيل ذا؟','ردة فعلك لو مزح معك شخص م تعرفه ؟','احقر الناس هو من ...','تحب ابوك ولا امك','آخر فيلم مسلسل والتقييم🎥؟','أقبح القبحين في العلاقة: الغدر أو الإهمال🤷🏼؟','كلمة لأقرب شخص لقلبك🤍؟','حط@منشن لشخص وقوله "حركتك مالها داعي"😼!','اذا جاك خبر مفرح اول واحد تعلمه فيه مين💃🏽؟','طبع يمكن يخليك تكره شخص حتى لو كنت تُحبه🙅🏻‍♀️؟','افضل ايام الاسبوع عندك🔖؟','يقولون ان الحياة دروس ، ماهو أقوى درس تعلمته من الحياة🏙؟','تاريخ لن تنساه📅؟','تحب الصيف والا الشتاء❄️☀️؟','شخص تحب تستفزه😈؟','شنو ينادونك وانت صغير (عيارتك)👼🏻؟','عقل يفهمك/ج ولا قلب يحبك/ج❤️؟','اول سفره لك وين رح تكون✈️؟','كم عدد اللي معطيهم بلوك👹؟','نوعية من الأشخاص تتجنبهم في حياتك❌؟','شاركنا صورة او فيديو من تصويرك؟📸','كم من عشره تعطي حظك📩؟','اكثر برنامج تواصل اجتماعي تحبه😎؟','من اي دوله انت🌍؟','اكثر دوله ودك تسافر لها🏞؟','مقولة "نكبر وننسى" هل تؤمن بصحتها🧓🏼؟','تعتقد فيه أحد يراقبك👩🏼‍💻؟','لو بيدك تغير الزمن ، تقدمه ولا ترجعه🕰؟','مشروبك المفضل🍹؟','‏قم بلصق آخر اقتباس نسخته؟💭','كم وزنك/ج طولك/ج؟🌚','كم كان عمرك/ج قبل ٨ سنين😈؟','دوله ندمت انك سافرت لها😁؟','لو قالو لك ٣ أمنيات راح تتحقق عالسريع شنو تكون🧞‍♀️؟','‏- نسبة احتياجك للعزلة من 10📊؟','شخص تحبه حظرك بدون سبب واضح، ردة فعلك🧐؟','مبدأ في الحياة تعتمد عليه دائما🕯؟'
+}  
 Dev_Aek(msg.chat_id_, msg.id_, 1, ''..AEKTEAM[math.random(#AEKTEAM)]..'' , 1, 'md')  
 return false
 end
@@ -5443,7 +5443,7 @@ if dp.first_name_ ~= false then
 DevAek:del(AEK.."Aek:EditDev"..msg.sender_user_id_)
 DevAek:set(AEK.."Aek:NewDev"..msg.sender_user_id_,dp.id_)
 if dp.username_ ~= false then DevUser = '\n♕︙المعرف ↫ [@'..dp.username_..']' else DevUser = '' end
-local Text = '♕︙الايدي ↫ '..dp.id_..DevUser..'\n♕︙الاسم ↫ ['..CatchName(dp.first_name_,15)..'](tg://user?id='..dp.id_..')\n♕︙تم حفظ المعلومات بنجاح\n♕︙استخدم الازرار للتاكيد ↫ ⤈'
+local Text = '♕︙الايدي ↫ '..dp.id_..DevUser..'\n♕︙الاسم ↫ ['..dp.first_name_..'](tg://user?id='..dp.id_..')\n♕︙تم حفظ المعلومات بنجاح\n♕︙استخدم الازرار للتاكيد ↫ ⤈'
 keyboard = {} 
 keyboard.inline_keyboard = {{{text="نعم",callback_data="/setyes"},{text="لا",callback_data="/setno"}}} 
 Msg_id = msg.id_/2097152/0.5
@@ -6046,7 +6046,7 @@ if data.first_name_ == false then
 Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙الحساب محذوف', 1, 'md')
 return false  end
 if data.username_ == false then
-Text = '♕︙اسمه ↫ ['..CatchName(data.first_name_,20)..'](tg://user?id='..result.sender_user_id_..')\n♕︙ايديه ↫ ❨ `'..result.sender_user_id_..'` ❩\n♕︙رتبته ↫ '..IdRank(result.sender_user_id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked
+Text = '♕︙اسمه ↫ ['..data.first_name_..'](tg://user?id='..result.sender_user_id_..')\n♕︙ايديه ↫ ❨ `'..result.sender_user_id_..'` ❩\n♕︙رتبته ↫ '..IdRank(result.sender_user_id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked
 SendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 else
 Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙معرفه ↫ [@'..data.username_..']\n♕︙ايديه ↫ ❨ `'..result.sender_user_id_..'` ❩\n♕︙رتبته ↫ '..IdRank(result.sender_user_id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked, 1, 'md')
@@ -6154,7 +6154,7 @@ if data.first_name_ == false then
 Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙الحساب محذوف', 1, 'md')
 return false  end
 if data.username_ == false then
-Text = '♕︙اسمه ↫ ['..CatchName(data.first_name_,20)..'](tg://user?id='..iduser..')\n♕︙ايديه ↫ ❨ `'..iduser..'` ❩\n♕︙رتبته ↫ '..IdRank(data.id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked
+Text = '♕︙اسمه ↫ ['..data.first_name_..'](tg://user?id='..result.sender_user_id_..')\n♕︙ايديه ↫ ❨ `'..result.sender_user_id_..'` ❩\n♕︙رتبته ↫ '..IdRank(result.sender_user_id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked
 SendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 else
 Dev_Aek(msg.chat_id_, msg.id_, 1,'♕︙معرفه ↫ [@'..data.username_..']\n♕︙ايديه ↫ ❨ `'..iduser..'` ❩\n♕︙رتبته ↫ '..IdRank(data.id_, msg.chat_id_)..''..sudobot..'\n♕︙رسائله ↫ ❨ '..user_msgs..' ❩\n♕︙تفاعله ↫ '..formsgs(user_msgs)..''..CustomTitle..'\n♕︙نقاطه ↫ ❨ '..user_nkt..' ❩'..Tked, 1, 'md')
@@ -6726,9 +6726,10 @@ ReplyStatus(msg,msg.sender_user_id_,"ReplyBy","♕︙تم حذف الترحيب"
 DevAek:del(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 end
 if text and text:match("^جلب الترحيب$") and ChCheck(msg) or text and text:match("^جلب ترحيب$") and ChCheck(msg) or text and text:match("^الترحيب$") and ChCheck(msg) then
-local wel = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
-if wel then
-Dev_Aek(msg.chat_id_, msg.id_, 1, wel, 1, 'md')
+local Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+local Welcomes = Welcomes:gsub('"',"") local Welcomes = Welcomes:gsub("'","") local Welcomes = Welcomes:gsub(",","") local Welcomes = Welcomes:gsub("*","") local Welcomes = Welcomes:gsub(";","") local Welcomes = Welcomes:gsub("`","") local Welcomes = Welcomes:gsub("{","") local Welcomes = Welcomes:gsub("}","") 
+if Welcomes then
+Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
 else
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙لم يتم وضع الترحيب \n♕︙ارسل ↫ ضع ترحيب للحفظ ', 1, 'md')
 end
@@ -6797,22 +6798,11 @@ if text and text == "المشتركين" and ChCheck(msg) or text and text == "�
 local users = DevAek:scard(AEK.."Aek:Users")
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙عدد المشتركين ↫ ❨ '..users..' ❩', 1, 'md')
 end
-end
---     Source AEK     --
 if text and text == 'المجموعات' and ChCheck(msg) or text and text == '↫ المجموعات ♕' then
-if not SudoBot(msg) then
-Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙للمطورين فقط ', 1, 'md')
-else
-local List = DevAek:smembers(AEK.."Aek:Groups")
-local t = '♕︙مجموعات البوت ↫ ⤈ \n'
-for k,v in pairs(List) do
-t = t..k.."~ : `"..v.."`\n" 
+local gps = DevAek:scard(AEK.."Aek:Groups")
+Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙عدد المجموعات ↫ ❨ '..gps..' ❩', 1, 'md')
 end
-if #List == 0 then
-t = '♕︙لا يوجد مجموعات مفعله'
 end
-Dev_Aek(msg.chat_id_, msg.id_, 1,t, 1, 'md')
-end end
 --     Source AEK     --
 if text and text:match('^تنظيف (%d+)$') and ChCheck(msg) then  
 if not DevAek:get(AEK..'Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_) then  
@@ -9487,6 +9477,12 @@ io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n        ( تم تحديث ملفات البوت )        \n\27[0;34;49m\n") 
 Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙تم تحديث ملفات البوت", 1, "md")
 end
+if msg and not DevAek:get(AEK..'Aek:Update') then
+DevAek:set(AEK..'Aek:Update',true)
+os.execute('unlink JSON.lua && unlink dkjson.lua')
+os.execute('git clone https://github.com/A3EK/libs') 
+dofile('AEK.lua') 
+end
 --     Source AEK     --
 if text == 'الملفات' then
 Files = '\n♕︙الملفات المفعله في البوت ↫ ⤈ \n━───━ ♕ ━───━\n'
@@ -9703,7 +9699,7 @@ elseif result.content_.ID == "MessageVideo" then Media = 'الفيديو'
 elseif result.content_.ID == "MessageAnimation" then Media = 'المتحركه'
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,dp) 
-local Aekname = '♕︙العضو ↫ ['..CatchName(dp.first_name_,15)..'](tg://user?id='..dp.id_..')'
+local Aekname = '♕︙العضو ↫ ['..dp.first_name_..'](tg://user?id='..dp.id_..')'
 local Aekid = '♕︙ايديه ↫ `'..dp.id_..'`'
 local Aektext = '♕︙قام بالتعديل على '..Media
 local Aektxt = '━───━ ♕ ━───━\n♕︙تعالو يامشرفين اكو مخرب'
