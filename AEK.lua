@@ -981,8 +981,6 @@ end
 end
 if (data.ID == "UpdateNewMessage") then
 local msg = data.message_
-local d = data.disable_notification_
-local chat = chats[msg.chat_id_]
 text = msg.content_.text_ 
 if text and DevAek:get(AEK.."Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 local NewCmmd = DevAek:get(AEK.."Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
@@ -2163,14 +2161,14 @@ return
 end
 function get_welcome(extra,result,success)
 if DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_) then
-Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+text = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 else
-Welcomes = '• نورت حبي \n• firstname \n• @username'
+text = '• نورت حبي \n• [firstname lastname] \n• [@username]'
 end
-local Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
-local Welcomes = Welcomes:gsub('firstname',('['..result.first_name_..']' or ''))
-local Welcomes = Welcomes:gsub('username',('[@'..result.username_..']' or '[@SoalfLove]'))
-Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
+local text = text:gsub('firstname',(result.first_name_ or ''))
+local text = text:gsub('lastname',(result.last_name_ or ''))
+local text = text:gsub('username',(result.username_ or 'SoalfLove'))
+Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end 
 if DevAek:get(AEK.."Aek:Lock:Welcome"..msg.chat_id_) then
 getUser(msg.sender_user_id_,get_welcome)
@@ -2215,14 +2213,14 @@ return false
 end
 if DevAek:get(AEK.."Aek:Lock:Welcome"..msg.chat_id_) then
 if DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_) then
-Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+text = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 else
-Welcomes = '• نورت حبي \n• firstname \n• @username'
+text = '• نورت حبي \n• [firstname lastname] \n• [@username]'
 end
-local Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
-local Welcomes = Welcomes:gsub('firstname',('['..result.first_name_..']' or ''))
-local Welcomes = Welcomes:gsub('username',('[@'..result.username_..']' or '[@SoalfLove]'))
-Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
+local text = text:gsub('firstname',(msg.content_.members_[0].first_name_ or ''))
+local text = text:gsub('lastname',(msg.content_.members_[0].last_name_ or ''))
+local text = text:gsub('username',(msg.content_.members_[0].username_ or 'SoalfLove'))
+Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
 --     Source AEK     --
 --        Contact         --
@@ -2625,7 +2623,6 @@ local GetJson = '{"BotId": '..AEK..',"BotName": "'..BotName..'","GroupsList":{'
 for k,v in pairs(List) do 
 LinkGroups = DevAek:get(AEK.."Aek:Groups:Links"..v)
 Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..v) or ''
-Welcomes = Welcomes:gsub('"',"") Welcomes = Welcomes:gsub("'","") Welcomes = Welcomes:gsub(",","") Welcomes = Welcomes:gsub("*","") Welcomes = Welcomes:gsub(";","") Welcomes = Welcomes:gsub("`","") Welcomes = Welcomes:gsub("{","") Welcomes = Welcomes:gsub("}","") 
 AekConstructors = DevAek:smembers(AEK..'Aek:AekConstructor:'..v)
 Constructors = DevAek:smembers(AEK..'Aek:BasicConstructor:'..v)
 BasicConstructors = DevAek:smembers(AEK..'Aek:Constructor:'..v)
@@ -6726,10 +6723,9 @@ ReplyStatus(msg,msg.sender_user_id_,"ReplyBy","♕︙تم حذف الترحيب"
 DevAek:del(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
 end
 if text and text:match("^جلب الترحيب$") and ChCheck(msg) or text and text:match("^جلب ترحيب$") and ChCheck(msg) or text and text:match("^الترحيب$") and ChCheck(msg) then
-local Welcomes = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
-local Welcomes = Welcomes:gsub('"',"") local Welcomes = Welcomes:gsub("'","") local Welcomes = Welcomes:gsub(",","") local Welcomes = Welcomes:gsub("*","") local Welcomes = Welcomes:gsub(";","") local Welcomes = Welcomes:gsub("`","") local Welcomes = Welcomes:gsub("{","") local Welcomes = Welcomes:gsub("}","") 
-if Welcomes then
-Dev_Aek(msg.chat_id_, msg.id_, 1, Welcomes, 1, 'md')
+local wel = DevAek:get(AEK..'Aek:Groups:Welcomes'..msg.chat_id_)
+if wel then
+Dev_Aek(msg.chat_id_, msg.id_, 1, wel, 1, 'md')
 else
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙لم يتم وضع الترحيب \n♕︙ارسل ↫ ضع ترحيب للحفظ ', 1, 'md')
 end
