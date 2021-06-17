@@ -419,7 +419,7 @@ vardump(JsonInfo)
 DevAek:set(AEK.."Aek:NameBot",JsonInfo.BotName) 
 for IdGps,v in pairs(JsonInfo.GroupsList) do
 DevAek:sadd(AEK.."Aek:Groups",IdGps) 
-DevAek:set(AEK.."Aek:Lock:Bots"..IdGps,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..IdGps ,"Spam:User","keed") 
+DevAek:set(AEK.."Aek:Lock:Bots"..IdGps,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..IdGps ,"Spam:User","del") 
 LockList ={'Aek:Lock:Links','Aek:Lock:Contact','Aek:Lock:Forwards','Aek:Lock:Videos','Aek:Lock:Gifs','Aek:Lock:EditMsgs','Aek:Lock:Stickers','Aek:Lock:Farsi','Aek:Lock:Spam','Aek:Lock:WebLinks','Aek:Lock:Photo'}
 for i,Lock in pairs(LockList) do
 DevAek:set(AEK..Lock..IdGps,true)
@@ -3762,7 +3762,7 @@ end
 end 
 Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 200000},TagAll,nil)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 100},TagAll,nil)
 end
 --     Source AEK     --
 if text and text:match("^كللهم (.*)$") and ChCheck(msg) then
@@ -3780,7 +3780,7 @@ end
 end 
 Dev_Aek(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 200000},TagAll,nil)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID, offset_ = 0,limit_ = 100},TagAll,nil)
 end
 end
 --     Source AEK     --
@@ -5316,7 +5316,7 @@ if tonumber(user) == tonumber(AEK) then
 Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙*لاتستطيع حظر البوت عام*", 1, 'md')
 return false 
 end
-if SudoId(user) == true then
+if SudoId(tonumber(user)) == true then
 Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙*لاتستطيع حظر المطور الاساسي*", 1, 'md')
 return false 
 end
@@ -5380,7 +5380,7 @@ if tonumber(user) == tonumber(AEK) then
 Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙*لاتستطيع كتم البوت عام*", 1, 'md')
 return false 
 end
-if SudoId(user) == true then
+if SudoId(tonumber(user)) == true then
 Dev_Aek(msg.chat_id_, msg.id_, 1, "♕︙*لاتستطيع كتم المطور الاساسي*", 1, 'md')
 return false 
 end
@@ -7370,7 +7370,7 @@ if text and text:match("^قفل التفليش$") or text and text:match("^تف�
 if not Constructor(msg) then
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙للمنشئين فقط', 1, 'md')
 else
-DevAek:set(AEK.."Aek:Lock:Bots"..msg.chat_id_,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..msg.chat_id_ ,"Spam:User","keed") 
+DevAek:set(AEK.."Aek:Lock:Bots"..msg.chat_id_,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..msg.chat_id_ ,"Spam:User","del") 
 LockList ={'Aek:Lock:Links','Aek:Lock:Contact','Aek:Lock:Forwards','Aek:Lock:Videos','Aek:Lock:Gifs','Aek:Lock:EditMsgs','Aek:Lock:Stickers','Aek:Lock:Farsi','Aek:Lock:Spam','Aek:Lock:WebLinks','Aek:Lock:Photo'}
 for i,Lock in pairs(LockList) do
 DevAek:set(AEK..Lock..msg.chat_id_,true)
@@ -7396,7 +7396,7 @@ if not Constructor(msg) then
 Dev_Aek(msg.chat_id_, msg.id_, 1, '♕︙للمنشئين فقط', 1, 'md')
 else
 DevAek:del(AEK..'Aek:Lock:Fshar'..msg.chat_id_) DevAek:del(AEK..'Aek:Lock:Taf'..msg.chat_id_) DevAek:del(AEK..'Aek:Lock:Kfr'..msg.chat_id_) 
-DevAek:set(AEK.."Aek:Lock:Bots"..msg.chat_id_,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..msg.chat_id_ ,"Spam:User","keed") 
+DevAek:set(AEK.."Aek:Lock:Bots"..msg.chat_id_,"del") DevAek:hset(AEK.."Aek:Spam:Group:User"..msg.chat_id_ ,"Spam:User","del") 
 LockList ={'Aek:Lock:EditMsgs','Aek:Lock:Farsi','Aek:Lock:TagServr','Aek:Lock:Inline','Aek:Lock:Photo','Aek:Lock:Spam','Aek:Lock:Videos','Aek:Lock:Gifs','Aek:Lock:Music','Aek:Lock:Voice','Aek:Lock:Links','Aek:Lock:Location','Aek:Lock:Tags','Aek:Lock:Stickers','Aek:Lock:Markdown','Aek:Lock:Forwards','Aek:Lock:Document','Aek:Lock:Contact','Aek:Lock:Hashtak','Aek:Lock:WebLinks'}
 for i,Lock in pairs(LockList) do
 DevAek:set(AEK..Lock..msg.chat_id_,true)
